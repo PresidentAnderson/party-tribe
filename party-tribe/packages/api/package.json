@@ -1,0 +1,26 @@
+{
+  "name": "@party-tribe/api",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@party-tribe/db": "workspace:*",
+    "@trpc/server": "^10.45.0",
+    "zod": "^3.22.0",
+    "superjson": "^2.2.0"
+  },
+  "devDependencies": {
+    "@party-tribe/config": "workspace:*",
+    "@types/node": "^20.10.0",
+    "eslint": "^8.55.0",
+    "typescript": "^5.3.0"
+  }
+}

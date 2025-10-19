@@ -1,0 +1,31 @@
+{
+  "extends": "@party-tribe/config/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@party-tribe/*": ["packages/*"]
+    }
+  },
+  "include": [],
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "./packages/config"
+    },
+    {
+      "path": "./packages/db"
+    },
+    {
+      "path": "./packages/api"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./apps/web"
+    },
+    {
+      "path": "./apps/admin"
+    }
+  ]
+}

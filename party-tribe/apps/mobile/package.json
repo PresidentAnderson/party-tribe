@@ -1,0 +1,29 @@
+{
+  "name": "@party-tribe/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "build": "echo 'Mobile build placeholder'",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@party-tribe/api": "workspace:*",
+    "expo": "~49.0.0",
+    "expo-router": "^2.0.0",
+    "react": "18.2.0",
+    "react-native": "0.72.6"
+  },
+  "devDependencies": {
+    "@party-tribe/config": "workspace:*",
+    "@babel/core": "^7.20.0",
+    "@types/react": "~18.2.14",
+    "eslint": "^8.55.0",
+    "typescript": "^5.1.3"
+  }
+}
