@@ -1,0 +1,33 @@
+{
+  "name": "party-tribe",
+  "version": "0.1.0",
+  "description": "Party Tribe™ - Where Fun Finds Its Tribe",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 3000 || python -m SimpleHTTPServer 3000",
+    "dev": "python3 -m http.server 3000 || python -m SimpleHTTPServer 3000",
+    "build": "echo 'Static site - no build required'",
+    "test": "echo 'No tests specified yet'",
+    "lint": "echo 'No linting configured yet'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/party-tribe/party-tribe.git"
+  },
+  "keywords": [
+    "party",
+    "events",
+    "tribes",
+    "social",
+    "platform",
+    "community"
+  ],
+  "author": "Party Tribe Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/party-tribe/party-tribe/issues"
+  },
+  "homepage": "https://github.com/party-tribe/party-tribe#readme",
+  "devDependencies": {},
+  "dependencies": {}
+}
