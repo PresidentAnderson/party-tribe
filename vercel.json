@@ -1,18 +1,11 @@
 {
   "version": 2,
   "public": true,
-  "name": "party-tribe",
   "alias": ["partytribe.vercel.app"],
-  "builds": [
+  "rewrites": [
     {
-      "src": "**/*",
-      "use": "@vercel/static"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
@@ -47,11 +40,6 @@
       ]
     }
   ],
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "regions": ["iad1", "fra1", "hkg1"],
   "github": {
     "silent": true
