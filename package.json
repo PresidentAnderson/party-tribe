@@ -5,8 +5,13 @@
   "main": "index.html",
   "scripts": {
     "start": "python3 -m http.server 3000 || python -m SimpleHTTPServer 3000",
-    "dev": "python3 -m http.server 3000 || python -m SimpleHTTPServer 3000",
+    "dev": "./scripts/dev.sh",
     "build": "echo 'Static site - no build required'",
+    "deploy": "./scripts/deploy.sh",
+    "preview": "./scripts/preview.sh",
+    "vercel:dev": "vercel dev",
+    "vercel:deploy": "vercel --prod --yes",
+    "vercel:preview": "vercel --yes",
     "test": "echo 'No tests specified yet'",
     "lint": "echo 'No linting configured yet'"
   },
