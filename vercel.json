@@ -1,7 +1,12 @@
 {
-  "buildCommand": "cd party-tribe && pnpm install && pnpm build",
+  "buildCommand": "cd party-tribe && pnpm install --no-frozen-lockfile && pnpm build",
   "installCommand": "npm install -g pnpm@8.12.0",
   "framework": "nextjs",
   "outputDirectory": "party-tribe/apps/web/.next",
-  "ignoreCommand": "git diff HEAD^ HEAD --quiet ."
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet .",
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "NEXTAUTH_SECRET": "@nextauth_secret",
+    "NEXTAUTH_URL": "@nextauth_url"
+  }
 }
