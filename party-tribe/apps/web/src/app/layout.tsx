@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { getServerSession } from "next-auth/next";
+import { Analytics } from "@vercel/analytics/next";
 
 import { authOptions } from "@party-tribe/api";
 import { Navbar } from "@party-tribe/ui";
@@ -35,6 +36,7 @@ export default async function RootLayout({
             </main>
           </AuthProvider>
         </TRPCReactProvider>
+        <Analytics />
       </body>
     </html>
   );
