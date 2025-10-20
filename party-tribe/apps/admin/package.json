@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@party-tribe/config": "workspace:*",
-    "@next/eslint-config-next": "^14.0.4",
+    "eslint-config-next": "^14.0.4",
     "@types/node": "^20.10.0",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",

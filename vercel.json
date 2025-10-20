@@ -1,5 +1,7 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "outputDirectory": "."
+  "buildCommand": "cd party-tribe && pnpm install && pnpm build",
+  "installCommand": "npm install -g pnpm@8.12.0",
+  "framework": "nextjs",
+  "outputDirectory": "party-tribe/apps/web/.next",
+  "ignoreCommand": "git diff HEAD^ HEAD --quiet ."
 }
