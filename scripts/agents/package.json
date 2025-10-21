@@ -1,0 +1,31 @@
+{
+  "name": "@party-tribe/deployment-agents",
+  "version": "1.0.0",
+  "description": "Specialized deployment agents for Party Tribe platform",
+  "private": true,
+  "scripts": {
+    "agent:backend": "node backend-deployment.js",
+    "agent:frontend": "node frontend-debugging.js",
+    "agent:database": "node database-configuration.js",
+    "agent:environment": "node environment-setup.js",
+    "agent:integration": "node integration-testing.js",
+    "agent:platform": "node platform-deployment-verification.js",
+    "test:agents": "node test-agents.js",
+    "deploy:all": "node platform-deployment-verification.js",
+    "clean:logs": "rm -rf logs/* reports/*",
+    "clean:all": "npm run clean:logs && rm -rf config/* templates/*"
+  },
+  "keywords": [
+    "deployment",
+    "agents",
+    "automation",
+    "party-tribe",
+    "vercel",
+    "nextjs"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Party Tribe Development Team",
+  "license": "MIT"
+}
