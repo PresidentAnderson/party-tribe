@@ -1,0 +1,144 @@
+{
+  "timestamp": "2025-10-21T15:52:25.397Z",
+  "duration": "49.519s",
+  "agent": "Integration Testing Agent",
+  "version": "1.0.0",
+  "summary": {
+    "totalTests": 16,
+    "passed": 11,
+    "failed": 5,
+    "passRate": "68.8%"
+  },
+  "results": {
+    "api": [
+      {
+        "name": "API Package Build",
+        "status": "FAIL",
+        "message": "Command failed: pnpm build",
+        "duration": 0
+      },
+      {
+        "name": "tRPC Router Configuration",
+        "status": "PASS",
+        "message": "All required routers configured",
+        "duration": 0
+      },
+      {
+        "name": "Authentication Configuration",
+        "status": "PASS",
+        "message": "Authentication configuration found",
+        "duration": 0
+      },
+      {
+        "name": "API Type Safety",
+        "status": "FAIL",
+        "message": "Command failed: pnpm type-check",
+        "duration": 0
+      }
+    ],
+    "database": [
+      {
+        "name": "Prisma Client Generation",
+        "status": "PASS",
+        "message": "Prisma client generated successfully",
+        "duration": 0
+      },
+      {
+        "name": "Schema Validation",
+        "status": "FAIL",
+        "message": "Command failed: pnpm prisma validate\nError: Prisma schema validation - (get-config wasm)\nError code: P1012\nerror: Environment variable not found: DATABASE_URL.\n  -->  prisma/schema.prisma:10\n   | \n 9 |   provider = \"postgresql\"\n10 |   url      = env(\"DATABASE_URL\")\n   | \n\nValidation Error Count: 1\n[Context: getConfig]\n\nPrisma CLI Version : 5.22.0\n",
+        "duration": 0
+      },
+      {
+        "name": "Database Types Export",
+        "status": "PASS",
+        "message": "All required types exported",
+        "duration": 0
+      },
+      {
+        "name": "Database Package Build",
+        "status": "PASS",
+        "message": "Database package built successfully",
+        "duration": 0
+      }
+    ],
+    "frontend": [
+      {
+        "name": "Web Application Build",
+        "status": "FAIL",
+        "message": "Command failed: pnpm build\n\nwarn - Your `content` configuration includes a pattern which looks like it's accidentally matching all of `node_modules` and can cause serious performance issues.\nwarn - Pattern: `../../packages/ui/**/*.ts`\nwarn - See our documentation for recommendations:\nwarn - https://tailwindcss.com/docs/content-configuration#pattern-recommendations\n ⨯ ESLint: Failed to load config \"@party-tribe/config/eslint.config.js\" to extend from. Referenced from: /Volumes/DevOPS 2025/01_DEVOPS_PLATFORM/THE TRIBE PLATFORM/party-tribe/.eslintrc.js\nFailed to compile.\n\n./src/app/api/trpc/[trpc]/route.ts:11:46\nType error: Type 'NextRequest' is missing the following properties from type 'NextApiRequest': query, env, aborted, httpVersion, and 67 more.\n\n\u001b[0m \u001b[90m  9 |\u001b[39m     req\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m     router\u001b[33m:\u001b[39m appRouter\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     createContext\u001b[33m:\u001b[39m () \u001b[33m=>\u001b[39m createTRPCContext({ req\u001b[33m,\u001b[39m res\u001b[33m:\u001b[39m undefined })\u001b[33m,\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m                                              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 12 |\u001b[39m     onError\u001b[33m:\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 |\u001b[39m       process\u001b[33m.\u001b[39menv\u001b[33m.\u001b[39m\u001b[33mNODE_ENV\u001b[39m \u001b[33m===\u001b[39m \u001b[32m\"development\"\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 14 |\u001b[39m         \u001b[33m?\u001b[39m ({ path\u001b[33m,\u001b[39m error }) \u001b[33m=>\u001b[39m {\u001b[0m\nNext.js build worker exited with code: 1 and signal: null\n",
+        "duration": 0
+      },
+      {
+        "name": "tRPC Client Integration",
+        "status": "PASS",
+        "message": "tRPC client properly configured",
+        "duration": 0
+      },
+      {
+        "name": "Authentication Provider",
+        "status": "PASS",
+        "message": "Authentication provider configured",
+        "duration": 0
+      },
+      {
+        "name": "Layout and Navigation",
+        "status": "PASS",
+        "message": "Layout and navigation properly configured",
+        "duration": 0
+      },
+      {
+        "name": "TypeScript Type Checking",
+        "status": "FAIL",
+        "message": "Command failed: pnpm type-check",
+        "duration": 0
+      }
+    ],
+    "authentication": [
+      {
+        "name": "NextAuth API Route",
+        "status": "PASS",
+        "message": "NextAuth API route configured",
+        "duration": 0
+      },
+      {
+        "name": "Authentication Configuration",
+        "status": "PASS",
+        "message": "2 OAuth providers configured",
+        "duration": 0
+      },
+      {
+        "name": "Database Adapter Configuration",
+        "status": "PASS",
+        "message": "Database adapter configured",
+        "duration": 0
+      }
+    ],
+    "performance": {
+      "bundleSize": {
+        "totalSize": 1274237,
+        "totalSizeMB": "1.22",
+        "breakdown": {
+          "javascript": "0.98MB",
+          "css": "0.03MB",
+          "other": "0.21MB"
+        }
+      }
+    }
+  },
+  "performance": {
+    "bundleSize": {
+      "totalSize": 1274237,
+      "totalSizeMB": "1.22",
+      "breakdown": {
+        "javascript": "0.98MB",
+        "css": "0.03MB",
+        "other": "0.21MB"
+      }
+    }
+  },
+  "recommendations": [
+    "Fix 5 failing tests before deployment",
+    "Check API package build and tRPC configuration"
+  ]
+}

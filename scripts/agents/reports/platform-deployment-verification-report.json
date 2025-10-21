@@ -1,0 +1,669 @@
+{
+  "timestamp": "2025-10-21T15:45:06.116Z",
+  "duration": "37.751s",
+  "agent": "Platform Deployment Verification Agent",
+  "version": "1.0.0",
+  "deployment": {
+    "url": null,
+    "status": "FAILED"
+  },
+  "summary": {
+    "agentSuccess": "2/5",
+    "endpointSuccess": "0/0",
+    "overallStatus": "PARTIAL",
+    "deploymentReady": null
+  },
+  "results": {
+    "agents": {
+      "Environment Setup": {
+        "status": "PASS",
+        "message": "Agent completed successfully",
+        "report": {
+          "timestamp": "2025-10-21T15:44:28.418Z",
+          "duration": "0.047s",
+          "agent": "Environment Setup Agent",
+          "version": "1.0.0",
+          "environments": [
+            "development",
+            "staging",
+            "production",
+            "development-example",
+            "web-development",
+            "admin-development"
+          ],
+          "validation": {
+            "requiredVars": {
+              "DATABASE_URL": {
+                "required": true,
+                "description": "PostgreSQL database connection string",
+                "example": "postgresql://user:password@localhost:5432/partytribe"
+              },
+              "NEXTAUTH_SECRET": {
+                "required": true,
+                "description": "Secret key for NextAuth.js sessions",
+                "example": "your-secret-key-here"
+              },
+              "NEXTAUTH_URL": {
+                "required": true,
+                "description": "Base URL for NextAuth.js",
+                "example": "http://localhost:3000"
+              },
+              "GOOGLE_CLIENT_ID": {
+                "required": false,
+                "description": "Google OAuth client ID",
+                "example": "your-google-client-id.googleusercontent.com"
+              },
+              "GOOGLE_CLIENT_SECRET": {
+                "required": false,
+                "description": "Google OAuth client secret",
+                "example": "your-google-client-secret"
+              },
+              "GITHUB_CLIENT_ID": {
+                "required": false,
+                "description": "GitHub OAuth client ID",
+                "example": "your-github-client-id"
+              },
+              "GITHUB_CLIENT_SECRET": {
+                "required": false,
+                "description": "GitHub OAuth client secret",
+                "example": "your-github-client-secret"
+              },
+              "STRIPE_SECRET_KEY": {
+                "required": false,
+                "description": "Stripe secret key for payments",
+                "example": "sk_test_..."
+              },
+              "STRIPE_WEBHOOK_SECRET": {
+                "required": false,
+                "description": "Stripe webhook secret",
+                "example": "whsec_..."
+              },
+              "SENDGRID_API_KEY": {
+                "required": false,
+                "description": "SendGrid API key for emails",
+                "example": "SG..."
+              },
+              "AWS_S3_BUCKET": {
+                "required": false,
+                "description": "AWS S3 bucket name",
+                "example": "party-tribe-assets"
+              },
+              "AWS_ACCESS_KEY_ID": {
+                "required": false,
+                "description": "AWS access key ID",
+                "example": "AKIA..."
+              },
+              "AWS_SECRET_ACCESS_KEY": {
+                "required": false,
+                "description": "AWS secret access key",
+                "example": "your-aws-secret"
+              },
+              "AWS_REGION": {
+                "required": false,
+                "description": "AWS region",
+                "example": "us-east-1"
+              }
+            },
+            "securityChecks": [
+              {
+                "type": "success",
+                "message": "No environment files exposed in git"
+              },
+              {
+                "type": "error",
+                "message": "Weak NEXTAUTH_SECRET in development"
+              },
+              {
+                "type": "error",
+                "message": "Weak NEXTAUTH_SECRET in development-example"
+              },
+              {
+                "type": "error",
+                "message": "Weak NEXTAUTH_SECRET in admin-development"
+              }
+            ],
+            "vercelChecks": [
+              {
+                "type": "success",
+                "message": "Environment variable DATABASE_URL configured with secret reference"
+              },
+              {
+                "type": "success",
+                "message": "Environment variable NEXTAUTH_SECRET configured with secret reference"
+              },
+              {
+                "type": "success",
+                "message": "Environment variable NEXTAUTH_URL configured with secret reference"
+              },
+              {
+                "type": "success",
+                "message": "Custom build command configured"
+              },
+              {
+                "type": "success",
+                "message": "Custom install command configured"
+              }
+            ]
+          },
+          "recommendations": [
+            "Set up a real database connection for development",
+            "Generate a secure NEXTAUTH_SECRET for development",
+            "Fix security issues found in environment configuration",
+            "Configure OAuth providers for authentication",
+            "Set up Vercel environment variables for production deployment",
+            "Review and update environment templates for your specific needs",
+            "Implement environment variable validation in your application startup"
+          ],
+          "summary": {
+            "environmentFiles": 6,
+            "securityIssues": 3,
+            "configuredVariables": 3
+          }
+        }
+      },
+      "Database Configuration": {
+        "status": "FAIL",
+        "message": "Command failed: pnpm prisma validate\nError: Prisma schema validation - (get-config wasm)\nError code: P1012\nerror: Environment variable not found: DATABASE_URL.\n  -->  prisma/schema.prisma:10\n   | \n 9 |   provider = \"postgresql\"\n10 |   url      = env(\"DATABASE_URL\")\n   | \n\nValidation Error Count: 1\n[Context: getConfig]\n\nPrisma CLI Version : 5.22.0\n",
+        "report": null
+      },
+      "Backend Deployment": {
+        "status": "FAIL",
+        "message": "Command failed: pnpm build",
+        "report": null
+      },
+      "Frontend Debugging": {
+        "status": "FAIL",
+        "message": "Frontend not built. Run build first.",
+        "report": null
+      },
+      "Integration Testing": {
+        "status": "PASS",
+        "message": "Agent completed successfully",
+        "report": {
+          "timestamp": "2025-10-21T15:44:56.346Z",
+          "duration": "19.714s",
+          "agent": "Integration Testing Agent",
+          "version": "1.0.0",
+          "summary": {
+            "totalTests": 16,
+            "passed": 11,
+            "failed": 5,
+            "passRate": "68.8%"
+          },
+          "results": {
+            "api": [
+              {
+                "name": "API Package Build",
+                "status": "FAIL",
+                "message": "Command failed: pnpm build",
+                "duration": 0
+              },
+              {
+                "name": "tRPC Router Configuration",
+                "status": "PASS",
+                "message": "All required routers configured",
+                "duration": 0
+              },
+              {
+                "name": "Authentication Configuration",
+                "status": "PASS",
+                "message": "Authentication configuration found",
+                "duration": 0
+              },
+              {
+                "name": "API Type Safety",
+                "status": "FAIL",
+                "message": "Command failed: pnpm type-check",
+                "duration": 0
+              }
+            ],
+            "database": [
+              {
+                "name": "Prisma Client Generation",
+                "status": "PASS",
+                "message": "Prisma client generated successfully",
+                "duration": 0
+              },
+              {
+                "name": "Schema Validation",
+                "status": "FAIL",
+                "message": "Command failed: pnpm prisma validate\nError: Prisma schema validation - (get-config wasm)\nError code: P1012\nerror: Environment variable not found: DATABASE_URL.\n  -->  prisma/schema.prisma:10\n   | \n 9 |   provider = \"postgresql\"\n10 |   url      = env(\"DATABASE_URL\")\n   | \n\nValidation Error Count: 1\n[Context: getConfig]\n\nPrisma CLI Version : 5.22.0\n",
+                "duration": 0
+              },
+              {
+                "name": "Database Types Export",
+                "status": "PASS",
+                "message": "All required types exported",
+                "duration": 0
+              },
+              {
+                "name": "Database Package Build",
+                "status": "PASS",
+                "message": "Database package built successfully",
+                "duration": 0
+              }
+            ],
+            "frontend": [
+              {
+                "name": "Web Application Build",
+                "status": "FAIL",
+                "message": "Command failed: pnpm build\nFailed to compile.\n\n./src/components/providers/trpc-provider.tsx\nModule not found: Can't resolve '@tanstack/react-query-devtools'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n../../packages/api/src/auth.ts\nModule not found: Can't resolve '@next-auth/prisma-adapter'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\nImport trace for requested module:\n../../packages/api/index.ts\n./src/app/layout.tsx\n\n../../node_modules/.pnpm/@trpc+next@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+react-query@10.45._afbt7zkz3pdvap72b6na6x4cla/node_modules/@trpc/next/dist/index.mjs\nAttempted import error: 'Hydrate' is not exported from '@tanstack/react-query' (imported as 'Hydrate').\n\nImport trace for requested module:\n../../node_modules/.pnpm/@trpc+next@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+react-query@10.45._afbt7zkz3pdvap72b6na6x4cla/node_modules/@trpc/next/dist/index.mjs\n./src/lib/trpc.ts\n./src/components/providers/trpc-provider.tsx\n\n../../node_modules/.pnpm/@trpc+react-query@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+server@10.4_kpwscehdz3kleae47daxpnwf24/node_modules/@trpc/react-query/dist/createHooksInternal-063195fc.mjs\nAttempted import error: 'hashQueryKey' is not exported from '@tanstack/react-query' (imported as 'hashQueryKey').\n\nImport trace for requested module:\n../../node_modules/.pnpm/@trpc+react-query@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+server@10.4_kpwscehdz3kleae47daxpnwf24/node_modules/@trpc/react-query/dist/createHooksInternal-063195fc.mjs\n../../node_modules/.pnpm/@trpc+react-query@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+server@10.4_kpwscehdz3kleae47daxpnwf24/node_modules/@trpc/react-query/dist/index.mjs\n../../node_modules/.pnpm/@trpc+next@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+react-query@10.45._afbt7zkz3pdvap72b6na6x4cla/node_modules/@trpc/next/dist/index.mjs\n./src/lib/trpc.ts\n./src/components/providers/trpc-provider.tsx\n\n\n> Build failed because of webpack errors\n",
+                "duration": 0
+              },
+              {
+                "name": "tRPC Client Integration",
+                "status": "PASS",
+                "message": "tRPC client properly configured",
+                "duration": 0
+              },
+              {
+                "name": "Authentication Provider",
+                "status": "PASS",
+                "message": "Authentication provider configured",
+                "duration": 0
+              },
+              {
+                "name": "Layout and Navigation",
+                "status": "PASS",
+                "message": "Layout and navigation properly configured",
+                "duration": 0
+              },
+              {
+                "name": "TypeScript Type Checking",
+                "status": "FAIL",
+                "message": "Command failed: pnpm type-check",
+                "duration": 0
+              }
+            ],
+            "authentication": [
+              {
+                "name": "NextAuth API Route",
+                "status": "PASS",
+                "message": "NextAuth API route configured",
+                "duration": 0
+              },
+              {
+                "name": "Authentication Configuration",
+                "status": "PASS",
+                "message": "2 OAuth providers configured",
+                "duration": 0
+              },
+              {
+                "name": "Database Adapter Configuration",
+                "status": "PASS",
+                "message": "Database adapter configured",
+                "duration": 0
+              }
+            ],
+            "performance": {
+              "bundleSize": {
+                "totalSize": 0,
+                "totalSizeMB": "0.00",
+                "breakdown": {
+                  "javascript": "0.00MB",
+                  "css": "0.00MB",
+                  "other": "0.00MB"
+                }
+              }
+            }
+          },
+          "performance": {
+            "bundleSize": {
+              "totalSize": 0,
+              "totalSizeMB": "0.00",
+              "breakdown": {
+                "javascript": "0.00MB",
+                "css": "0.00MB",
+                "other": "0.00MB"
+              }
+            }
+          },
+          "recommendations": [
+            "Fix 5 failing tests before deployment",
+            "Check API package build and tRPC configuration"
+          ]
+        }
+      }
+    },
+    "endpoints": {},
+    "performance": {},
+    "security": {},
+    "monitoring": {
+      "vercelAnalytics": {
+        "enabled": true,
+        "configured": true
+      },
+      "errorTracking": {
+        "recommendation": "Set up Sentry or similar error tracking service",
+        "configured": false
+      },
+      "uptime": {
+        "recommendation": "Set up uptime monitoring (UptimeRobot, Pingdom)",
+        "configured": false
+      },
+      "performance": {
+        "recommendation": "Configure Core Web Vitals monitoring",
+        "vercelSpeedInsights": "Available in Vercel dashboard"
+      },
+      "logs": {
+        "vercelLogs": "Available in Vercel dashboard",
+        "recommendation": "Set up log aggregation for production"
+      }
+    }
+  },
+  "agentResults": {
+    "Environment Setup": {
+      "success": true,
+      "report": {
+        "timestamp": "2025-10-21T15:44:28.418Z",
+        "duration": "0.047s",
+        "agent": "Environment Setup Agent",
+        "version": "1.0.0",
+        "environments": [
+          "development",
+          "staging",
+          "production",
+          "development-example",
+          "web-development",
+          "admin-development"
+        ],
+        "validation": {
+          "requiredVars": {
+            "DATABASE_URL": {
+              "required": true,
+              "description": "PostgreSQL database connection string",
+              "example": "postgresql://user:password@localhost:5432/partytribe"
+            },
+            "NEXTAUTH_SECRET": {
+              "required": true,
+              "description": "Secret key for NextAuth.js sessions",
+              "example": "your-secret-key-here"
+            },
+            "NEXTAUTH_URL": {
+              "required": true,
+              "description": "Base URL for NextAuth.js",
+              "example": "http://localhost:3000"
+            },
+            "GOOGLE_CLIENT_ID": {
+              "required": false,
+              "description": "Google OAuth client ID",
+              "example": "your-google-client-id.googleusercontent.com"
+            },
+            "GOOGLE_CLIENT_SECRET": {
+              "required": false,
+              "description": "Google OAuth client secret",
+              "example": "your-google-client-secret"
+            },
+            "GITHUB_CLIENT_ID": {
+              "required": false,
+              "description": "GitHub OAuth client ID",
+              "example": "your-github-client-id"
+            },
+            "GITHUB_CLIENT_SECRET": {
+              "required": false,
+              "description": "GitHub OAuth client secret",
+              "example": "your-github-client-secret"
+            },
+            "STRIPE_SECRET_KEY": {
+              "required": false,
+              "description": "Stripe secret key for payments",
+              "example": "sk_test_..."
+            },
+            "STRIPE_WEBHOOK_SECRET": {
+              "required": false,
+              "description": "Stripe webhook secret",
+              "example": "whsec_..."
+            },
+            "SENDGRID_API_KEY": {
+              "required": false,
+              "description": "SendGrid API key for emails",
+              "example": "SG..."
+            },
+            "AWS_S3_BUCKET": {
+              "required": false,
+              "description": "AWS S3 bucket name",
+              "example": "party-tribe-assets"
+            },
+            "AWS_ACCESS_KEY_ID": {
+              "required": false,
+              "description": "AWS access key ID",
+              "example": "AKIA..."
+            },
+            "AWS_SECRET_ACCESS_KEY": {
+              "required": false,
+              "description": "AWS secret access key",
+              "example": "your-aws-secret"
+            },
+            "AWS_REGION": {
+              "required": false,
+              "description": "AWS region",
+              "example": "us-east-1"
+            }
+          },
+          "securityChecks": [
+            {
+              "type": "success",
+              "message": "No environment files exposed in git"
+            },
+            {
+              "type": "error",
+              "message": "Weak NEXTAUTH_SECRET in development"
+            },
+            {
+              "type": "error",
+              "message": "Weak NEXTAUTH_SECRET in development-example"
+            },
+            {
+              "type": "error",
+              "message": "Weak NEXTAUTH_SECRET in admin-development"
+            }
+          ],
+          "vercelChecks": [
+            {
+              "type": "success",
+              "message": "Environment variable DATABASE_URL configured with secret reference"
+            },
+            {
+              "type": "success",
+              "message": "Environment variable NEXTAUTH_SECRET configured with secret reference"
+            },
+            {
+              "type": "success",
+              "message": "Environment variable NEXTAUTH_URL configured with secret reference"
+            },
+            {
+              "type": "success",
+              "message": "Custom build command configured"
+            },
+            {
+              "type": "success",
+              "message": "Custom install command configured"
+            }
+          ]
+        },
+        "recommendations": [
+          "Set up a real database connection for development",
+          "Generate a secure NEXTAUTH_SECRET for development",
+          "Fix security issues found in environment configuration",
+          "Configure OAuth providers for authentication",
+          "Set up Vercel environment variables for production deployment",
+          "Review and update environment templates for your specific needs",
+          "Implement environment variable validation in your application startup"
+        ],
+        "summary": {
+          "environmentFiles": 6,
+          "securityIssues": 3,
+          "configuredVariables": 3
+        }
+      }
+    },
+    "Database Configuration": {
+      "success": false,
+      "error": "Command failed: pnpm prisma validate\nError: Prisma schema validation - (get-config wasm)\nError code: P1012\nerror: Environment variable not found: DATABASE_URL.\n  -->  prisma/schema.prisma:10\n   | \n 9 |   provider = \"postgresql\"\n10 |   url      = env(\"DATABASE_URL\")\n   | \n\nValidation Error Count: 1\n[Context: getConfig]\n\nPrisma CLI Version : 5.22.0\n"
+    },
+    "Backend Deployment": {
+      "success": false,
+      "error": "Command failed: pnpm build"
+    },
+    "Frontend Debugging": {
+      "success": false,
+      "error": "Frontend not built. Run build first."
+    },
+    "Integration Testing": {
+      "success": true,
+      "report": {
+        "timestamp": "2025-10-21T15:44:56.346Z",
+        "duration": "19.714s",
+        "agent": "Integration Testing Agent",
+        "version": "1.0.0",
+        "summary": {
+          "totalTests": 16,
+          "passed": 11,
+          "failed": 5,
+          "passRate": "68.8%"
+        },
+        "results": {
+          "api": [
+            {
+              "name": "API Package Build",
+              "status": "FAIL",
+              "message": "Command failed: pnpm build",
+              "duration": 0
+            },
+            {
+              "name": "tRPC Router Configuration",
+              "status": "PASS",
+              "message": "All required routers configured",
+              "duration": 0
+            },
+            {
+              "name": "Authentication Configuration",
+              "status": "PASS",
+              "message": "Authentication configuration found",
+              "duration": 0
+            },
+            {
+              "name": "API Type Safety",
+              "status": "FAIL",
+              "message": "Command failed: pnpm type-check",
+              "duration": 0
+            }
+          ],
+          "database": [
+            {
+              "name": "Prisma Client Generation",
+              "status": "PASS",
+              "message": "Prisma client generated successfully",
+              "duration": 0
+            },
+            {
+              "name": "Schema Validation",
+              "status": "FAIL",
+              "message": "Command failed: pnpm prisma validate\nError: Prisma schema validation - (get-config wasm)\nError code: P1012\nerror: Environment variable not found: DATABASE_URL.\n  -->  prisma/schema.prisma:10\n   | \n 9 |   provider = \"postgresql\"\n10 |   url      = env(\"DATABASE_URL\")\n   | \n\nValidation Error Count: 1\n[Context: getConfig]\n\nPrisma CLI Version : 5.22.0\n",
+              "duration": 0
+            },
+            {
+              "name": "Database Types Export",
+              "status": "PASS",
+              "message": "All required types exported",
+              "duration": 0
+            },
+            {
+              "name": "Database Package Build",
+              "status": "PASS",
+              "message": "Database package built successfully",
+              "duration": 0
+            }
+          ],
+          "frontend": [
+            {
+              "name": "Web Application Build",
+              "status": "FAIL",
+              "message": "Command failed: pnpm build\nFailed to compile.\n\n./src/components/providers/trpc-provider.tsx\nModule not found: Can't resolve '@tanstack/react-query-devtools'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\n../../packages/api/src/auth.ts\nModule not found: Can't resolve '@next-auth/prisma-adapter'\n\nhttps://nextjs.org/docs/messages/module-not-found\n\nImport trace for requested module:\n../../packages/api/index.ts\n./src/app/layout.tsx\n\n../../node_modules/.pnpm/@trpc+next@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+react-query@10.45._afbt7zkz3pdvap72b6na6x4cla/node_modules/@trpc/next/dist/index.mjs\nAttempted import error: 'Hydrate' is not exported from '@tanstack/react-query' (imported as 'Hydrate').\n\nImport trace for requested module:\n../../node_modules/.pnpm/@trpc+next@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+react-query@10.45._afbt7zkz3pdvap72b6na6x4cla/node_modules/@trpc/next/dist/index.mjs\n./src/lib/trpc.ts\n./src/components/providers/trpc-provider.tsx\n\n../../node_modules/.pnpm/@trpc+react-query@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+server@10.4_kpwscehdz3kleae47daxpnwf24/node_modules/@trpc/react-query/dist/createHooksInternal-063195fc.mjs\nAttempted import error: 'hashQueryKey' is not exported from '@tanstack/react-query' (imported as 'hashQueryKey').\n\nImport trace for requested module:\n../../node_modules/.pnpm/@trpc+react-query@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+server@10.4_kpwscehdz3kleae47daxpnwf24/node_modules/@trpc/react-query/dist/createHooksInternal-063195fc.mjs\n../../node_modules/.pnpm/@trpc+react-query@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+server@10.4_kpwscehdz3kleae47daxpnwf24/node_modules/@trpc/react-query/dist/index.mjs\n../../node_modules/.pnpm/@trpc+next@10.45.2_@tanstack+react-query@5.90.5_@trpc+client@10.45.2_@trpc+react-query@10.45._afbt7zkz3pdvap72b6na6x4cla/node_modules/@trpc/next/dist/index.mjs\n./src/lib/trpc.ts\n./src/components/providers/trpc-provider.tsx\n\n\n> Build failed because of webpack errors\n",
+              "duration": 0
+            },
+            {
+              "name": "tRPC Client Integration",
+              "status": "PASS",
+              "message": "tRPC client properly configured",
+              "duration": 0
+            },
+            {
+              "name": "Authentication Provider",
+              "status": "PASS",
+              "message": "Authentication provider configured",
+              "duration": 0
+            },
+            {
+              "name": "Layout and Navigation",
+              "status": "PASS",
+              "message": "Layout and navigation properly configured",
+              "duration": 0
+            },
+            {
+              "name": "TypeScript Type Checking",
+              "status": "FAIL",
+              "message": "Command failed: pnpm type-check",
+              "duration": 0
+            }
+          ],
+          "authentication": [
+            {
+              "name": "NextAuth API Route",
+              "status": "PASS",
+              "message": "NextAuth API route configured",
+              "duration": 0
+            },
+            {
+              "name": "Authentication Configuration",
+              "status": "PASS",
+              "message": "2 OAuth providers configured",
+              "duration": 0
+            },
+            {
+              "name": "Database Adapter Configuration",
+              "status": "PASS",
+              "message": "Database adapter configured",
+              "duration": 0
+            }
+          ],
+          "performance": {
+            "bundleSize": {
+              "totalSize": 0,
+              "totalSizeMB": "0.00",
+              "breakdown": {
+                "javascript": "0.00MB",
+                "css": "0.00MB",
+                "other": "0.00MB"
+              }
+            }
+          }
+        },
+        "performance": {
+          "bundleSize": {
+            "totalSize": 0,
+            "totalSizeMB": "0.00",
+            "breakdown": {
+              "javascript": "0.00MB",
+              "css": "0.00MB",
+              "other": "0.00MB"
+            }
+          }
+        },
+        "recommendations": [
+          "Fix 5 failing tests before deployment",
+          "Check API package build and tRPC configuration"
+        ]
+      }
+    }
+  },
+  "recommendations": [
+    "Fix failing agents: Database Configuration, Backend Deployment, Frontend Debugging",
+    "Complete Vercel deployment setup"
+  ],
+  "nextSteps": [
+    "Fix deployment issues and retry deployment",
+    "Verify Vercel CLI authentication",
+    "Check build configuration in vercel.json"
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "timestamp": "2025-10-21T15:44:28.418Z",
+  "duration": "0.047s",
+  "agent": "Environment Setup Agent",
+  "version": "1.0.0",
+  "environments": [
+    "development",
+    "staging",
+    "production",
+    "development-example",
+    "web-development",
+    "admin-development"
+  ],
+  "validation": {
+    "requiredVars": {
+      "DATABASE_URL": {
+        "required": true,
+        "description": "PostgreSQL database connection string",
+        "example": "postgresql://user:password@localhost:5432/partytribe"
+      },
+      "NEXTAUTH_SECRET": {
+        "required": true,
+        "description": "Secret key for NextAuth.js sessions",
+        "example": "your-secret-key-here"
+      },
+      "NEXTAUTH_URL": {
+        "required": true,
+        "description": "Base URL for NextAuth.js",
+        "example": "http://localhost:3000"
+      },
+      "GOOGLE_CLIENT_ID": {
+        "required": false,
+        "description": "Google OAuth client ID",
+        "example": "your-google-client-id.googleusercontent.com"
+      },
+      "GOOGLE_CLIENT_SECRET": {
+        "required": false,
+        "description": "Google OAuth client secret",
+        "example": "your-google-client-secret"
+      },
+      "GITHUB_CLIENT_ID": {
+        "required": false,
+        "description": "GitHub OAuth client ID",
+        "example": "your-github-client-id"
+      },
+      "GITHUB_CLIENT_SECRET": {
+        "required": false,
+        "description": "GitHub OAuth client secret",
+        "example": "your-github-client-secret"
+      },
+      "STRIPE_SECRET_KEY": {
+        "required": false,
+        "description": "Stripe secret key for payments",
+        "example": "sk_test_..."
+      },
+      "STRIPE_WEBHOOK_SECRET": {
+        "required": false,
+        "description": "Stripe webhook secret",
+        "example": "whsec_..."
+      },
+      "SENDGRID_API_KEY": {
+        "required": false,
+        "description": "SendGrid API key for emails",
+        "example": "SG..."
+      },
+      "AWS_S3_BUCKET": {
+        "required": false,
+        "description": "AWS S3 bucket name",
+        "example": "party-tribe-assets"
+      },
+      "AWS_ACCESS_KEY_ID": {
+        "required": false,
+        "description": "AWS access key ID",
+        "example": "AKIA..."
+      },
+      "AWS_SECRET_ACCESS_KEY": {
+        "required": false,
+        "description": "AWS secret access key",
+        "example": "your-aws-secret"
+      },
+      "AWS_REGION": {
+        "required": false,
+        "description": "AWS region",
+        "example": "us-east-1"
+      }
+    },
+    "securityChecks": [
+      {
+        "type": "success",
+        "message": "No environment files exposed in git"
+      },
+      {
+        "type": "error",
+        "message": "Weak NEXTAUTH_SECRET in development"
+      },
+      {
+        "type": "error",
+        "message": "Weak NEXTAUTH_SECRET in development-example"
+      },
+      {
+        "type": "error",
+        "message": "Weak NEXTAUTH_SECRET in admin-development"
+      }
+    ],
+    "vercelChecks": [
+      {
+        "type": "success",
+        "message": "Environment variable DATABASE_URL configured with secret reference"
+      },
+      {
+        "type": "success",
+        "message": "Environment variable NEXTAUTH_SECRET configured with secret reference"
+      },
+      {
+        "type": "success",
+        "message": "Environment variable NEXTAUTH_URL configured with secret reference"
+      },
+      {
+        "type": "success",
+        "message": "Custom build command configured"
+      },
+      {
+        "type": "success",
+        "message": "Custom install command configured"
+      }
+    ]
+  },
+  "recommendations": [
+    "Set up a real database connection for development",
+    "Generate a secure NEXTAUTH_SECRET for development",
+    "Fix security issues found in environment configuration",
+    "Configure OAuth providers for authentication",
+    "Set up Vercel environment variables for production deployment",
+    "Review and update environment templates for your specific needs",
+    "Implement environment variable validation in your application startup"
+  ],
+  "summary": {
+    "environmentFiles": 6,
+    "securityIssues": 3,
+    "configuredVariables": 3
+  }
+}

@@ -16,7 +16,10 @@ const createInnerTRPCContext = (opts: CreateContextOptions) => {
   };
 };
 
-export const createTRPCContext = async (opts: CreateNextContextOptions) => {
+export const createTRPCContext = async (opts: CreateNextContextOptions): Promise<{
+  session: Session | null;
+  db: typeof db;
+}> => {
   const { req, res } = opts;
 
   // Get the session from the server using the getServerSession wrapper function

@@ -2,7 +2,10 @@
   "extends": "@party-tribe/config/tsconfig.json",
   "compilerOptions": {
     "outDir": "dist",
-    "rootDir": "."
+    "rootDir": ".",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
   },
   "include": [
     "**/*.ts",
